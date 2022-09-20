@@ -1,20 +1,17 @@
-
 const express = require('express');
 const expressApp = require('./express-app');
 
-const StartServer = async() => {
-
+const StartServer = async () => {
     const app = express();
-    
+
     await expressApp(app);
     let PORT = 3000;
     app.listen(PORT, () => {
         console.log(`listening to port ${PORT}`);
-    })
-    .on('error', (err) => {
+    }).on('error', (err) => {
         console.log(err);
         process.exit();
-    })
-}
+    });
+};
 
 StartServer();
